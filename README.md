@@ -1,5 +1,5 @@
 # Neobis-tasks
-* Ermek Ashirov
+* Ermek Ashirov -> ashirovermek00@gmail.com
 * 03.05.2021
 ___
 ## Image
