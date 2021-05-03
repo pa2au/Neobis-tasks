@@ -6,9 +6,9 @@ ___
 ![image](https://user-images.githubusercontent.com/54929959/116916576-56a60400-ac6f-11eb-8e2e-c06b53907cf5.png)
 ___
 ## Simple code
-'''
-public class Main {
-    public static void main(String[] args) {
+
++public class Main {
++public static void main(String[] args) {
         int [] mas = {11, 3, 14, 16, 7};
         boolean isSorted = false;
         int buf;
