@@ -1,0 +1,1 @@
+Select Distinct City from Station where ID%2=0 and Lat_N>0 and Long_W>0

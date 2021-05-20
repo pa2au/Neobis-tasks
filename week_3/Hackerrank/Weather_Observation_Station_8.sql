@@ -1,0 +1,1 @@
+Select Distinct City from Station where City like '[a, e, i, o, u]%[a, e, i, o, u]'

@@ -1,0 +1,1 @@
+Select City,State from Station where Lat_N>0 and Long_W>0
