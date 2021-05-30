@@ -36,7 +36,7 @@ MODIFY COLUMN id INT auto_increment primary key;
 ALTER TABLE Sales 
 MODIFY COLUMN id INT auto_increment primary key;
 
-ALTER TABLE sales
+ALTER TABLE Sales
 ADD ( CONSTRAINT fk_Clients_FirstName foreign key(Clients_FirstName) references Clients(FirstName),
  CONSTRAINT fk_Clients_LastName foreign key(Clients_LastName) references Clients(LastName),
  CONSTRAINT fk_Kulikovsky_Name foreign key(Kulikovsky_Name) references Kulikovsky(Name));
