@@ -1,48 +1,48 @@
 CREATE DATABASE week4;
 USE week4;
 
-CREATE TABLE Kulikovsky(
+CREATE TABLE kulikovsky(
 id int ,
-Name varchar(50) not null,
-Type varchar(21),
-Shape varchar(21),
+name varchar(50) not null,
+type varchar(21),
+shape varchar(21),
 price double,
-DateOfManufacture date,
-DateOfExpiration date);
+dateOfManufacture date,
+dateOfExpiration date);
 
-CREATE TABLE Clients(
+CREATE TABLE clients(
 id int,
-FirstName varchar(50) not null,
-LastName varchar(50) not null,
-Sex varchar(1) not null,
-Phone_number varchar(10),
-DateOfBirth date,
-DateOfRegistration date not null,
-Address varchar(100));
+firstName varchar(50) not null,
+lastName varchar(50) not null,
+sex varchar(1) not null,
+phone_number varchar(10),
+dateOfBirth date,
+dateOfRegistration date not null,
+address varchar(100));
 
-CREATE TABLE Sales(
+CREATE TABLE sales(
 id int,
-Clients_FirstName varchar(50),
-Clients_LastName varchar(50),
-Kulikovsky_Name varchar(50),
-DateOfSale int);
+clients_FirstName varchar(50),
+clients_LastName varchar(50),
+kulikovsky_Name varchar(50),
+dateOfSale int);
 
-ALTER TABLE Kulikovsky 
+ALTER TABLE kulikovsky 
 MODIFY COLUMN id INT auto_increment primary key;
 
-ALTER TABLE Clients 
+ALTER TABLE clients 
 MODIFY COLUMN id INT auto_increment primary key;
 
-ALTER TABLE Sales 
+ALTER TABLE sales 
 MODIFY COLUMN id INT auto_increment primary key;
 
-ALTER TABLE Sales
-ADD ( CONSTRAINT fk_Clients_FirstName foreign key(Clients_FirstName) references Clients(FirstName),
- CONSTRAINT fk_Clients_LastName foreign key(Clients_LastName) references Clients(LastName),
- CONSTRAINT fk_Kulikovsky_Name foreign key(Kulikovsky_Name) references Kulikovsky(Name));
+ALTER TABLE sales
+ADD ( CONSTRAINT fk_clients_firstName foreign key(clients_firstName) references clients(firstName),
+ CONSTRAINT fk_clients_lastName foreign key(clients_lastName) references clients(lastName),
+ CONSTRAINT fk_kulikovsky_name foreign key(kulikovsky_name) references kulikovsky(name));
 
 
-INSERT INTO Kulikovsky
+INSERT INTO kulikovsky
 VALUES
 (1000, "chocolate", "pie", "square", 552,2, "2021-05-05", "2021-05-25"),
 (2222, "cheesecake", "cake", "circle", 720.0, "2021-05-03", "2021-05-08"),
@@ -51,7 +51,7 @@ VALUES
 (5443, "currant", "ice cream", "cup", 55, "2021-05-05", "2021-06-05"),
 (6666, "3chocolates", "pie", "square", 1200, "2021-05-01", "2021-05-16");
 
-INSERT INTO Сlients
+INSERT INTO clients
 VALUES
 (1, "Ermek", "Ashirov", "m", "0777123456", "2001-01-01", "2021-01-01", "Bishkek"),
 (2, "Sultan", "Sokeev", "m", "0700123456", "2002-02-02", "2021-01-15", "Tokmok"),
@@ -59,7 +59,7 @@ VALUES
 (4, "Alina", "Kybanychova", "f", "0543123456", "2004-04-04", "2021-02-15", "Kemin"),
 (5, "Altynai", "Turdalieva", "f", "0999123456", "2005-05-05", "2020-03-01", "Sokuluk");
 
-INSERT INTO Sales
+INSERT INTO sales
 VALUES
 (111, "Ermek", "Ashirov","chocolate","2021-05-06"),
 (222, "Sultan", "Sokeev","3chocolates","2021-05-10"),
