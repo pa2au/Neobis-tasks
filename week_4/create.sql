@@ -22,10 +22,9 @@ address varchar(100));
 
 CREATE TABLE sales(
 id int,
-clients_FirstName varchar(50),
-clients_LastName varchar(50),
-kulikovsky_Name varchar(50),
-dateOfSale int);
+clients_id int,
+kulikovsky_id int,
+dateOfSale date);
 
 ALTER TABLE kulikovsky 
 MODIFY COLUMN id INT auto_increment primary key;
@@ -37,14 +36,13 @@ ALTER TABLE sales
 MODIFY COLUMN id INT auto_increment primary key;
 
 ALTER TABLE sales
-ADD ( CONSTRAINT fk_clients_firstName foreign key(clients_firstName) references clients(firstName),
- CONSTRAINT fk_clients_lastName foreign key(clients_lastName) references clients(lastName),
- CONSTRAINT fk_kulikovsky_name foreign key(kulikovsky_name) references kulikovsky(name));
+ADD ( CONSTRAINT fk_clients_id foreign key(clients_id) references clients(id),
+ CONSTRAINT fk_kulikovsky_id foreign key(kulikovsky_id) references kulikovsky(id));
 
 
 INSERT INTO kulikovsky
 VALUES
-(1000, "chocolate", "pie", "square", 552,2, "2021-05-05", "2021-05-25"),
+(1000, "chocolate", "pie", "square", 552.2, "2021-05-05", "2021-05-25"),
 (2222, "cheesecake", "cake", "circle", 720.0, "2021-05-03", "2021-05-08"),
 (3345, "homecake", "cake", "circle", 350.5, "2021-05-06", "2021-05-11"),
 (4554, "Prague", "cake", "circle", 800, "2021-05-08", "2021-05-13"),
@@ -61,8 +59,8 @@ VALUES
 
 INSERT INTO sales
 VALUES
-(111, "Ermek", "Ashirov","chocolate","2021-05-06"),
-(222, "Sultan", "Sokeev","3chocolates","2021-05-10"),
-(333, "Altynai", "Turdalieva","currant","2021-05-16"),
-(444, "Alina","Kybanychova","homecake","2021-05-10"),
-(555, "Nurs", "Asanov","Prague","2021-05-05-13");
+(111, "1", "1000", "2021-05-06"),
+(222, "2", "6666", "2021-05-10"),
+(333, "5", "5443", "2021-05-16"),
+(444, "4", "3345", "2021-05-10"),
+(555, "3", "4554", "2021-05-13");
