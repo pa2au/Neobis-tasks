@@ -30,11 +30,15 @@ public class Main {
     private static void showTable(String table) throws SQLException {
 
         Connection connection = getConnection();
-        Statement statement = connection.createStatement();
         String myRSet = "SELECT * FROM " + table;
-        ResultSet resultSet = statement.executeQuery(myRSet);
-        if(resultSet != null) {
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        if(connection != null) {
             try {
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(myRSet);
+
                 ResultSetMetaData metadata = resultSet.getMetaData();
                 int columnCount = metadata.getColumnCount();
 
@@ -48,11 +52,11 @@ public class Main {
                 e.printStackTrace();
             } finally {
                 try {
-                    if(resultSet != null)
+                     if(resultSet != null)
                         resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                     } catch (SQLException e) {
+                       e.printStackTrace();
+                     }
                 try {
                     statement.close();
                 } catch (SQLException e) {
