@@ -7,8 +7,8 @@ name varchar(50) not null,
 type varchar(21),
 shape varchar(21),
 price double,
-dateOfManufacture date,
-dateOfExpiration date);
+date_of_manufacture date,
+date_of_expiration date);
 
 CREATE TABLE clients(
 id int,
@@ -16,15 +16,15 @@ firstName varchar(50) not null,
 lastName varchar(50) not null,
 sex varchar(1) not null,
 phone_number varchar(10),
-dateOfBirth date,
-dateOfRegistration date not null,
+date_of_birth date,
+date_of_registration date not null,
 address varchar(100));
 
 CREATE TABLE sales(
 id int,
 clients_id int,
 kulikovsky_id int,
-dateOfSale date);
+date_of_sale date);
 
 ALTER TABLE kulikovsky 
 MODIFY COLUMN id INT auto_increment primary key;

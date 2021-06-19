@@ -1,5 +1,6 @@
 package com.example.week6.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import java.util.Date;
 @Entity
 @Table(name = "kulikovsky")
 public class kulikovksy {
-
+        @GeneratedValue()
         @Id
         @Column(name = "id", updatable = false, nullable = false)
         private int id;
@@ -26,10 +27,10 @@ public class kulikovksy {
 
         @Column(name = "price")
         private double price;
-
+        @JsonFormat(pattern="yyyy-MM-dd")
         @Column(name = "dateOfManufacture ")
         private Date dateOfManufacture ;
-
+        @JsonFormat(pattern="yyyy-MM-dd")
         @Column(name = "dateOfExpiration ")
         private Date dateOfExpiration ;
 

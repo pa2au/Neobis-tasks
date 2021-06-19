@@ -14,20 +14,22 @@ public class kulikovksyController {
     private kulikovskyService kulikovskyService;
 
     @GetMapping("/getAll")
+
     public Iterable<kulikovksy> getAll() {
         Iterable<kulikovksy> values =  kulikovskyService.getAll();
         return values;
     }
 
+
     @PostMapping("/add")
-    public String  addNewCake(@ModelAttribute kulikovskyModel cake){
+    public String  addNewCake(@RequestBody kulikovskyModel cake){
         kulikovskyService.addNewCake(cake);
         return "new cake was added";
     }
 
 
     @PutMapping("/update/{id}")
-    public String updateCar(@PathVariable("id") int id, @ModelAttribute kulikovskyModel cake) throws Exception {
+    public String updateCar(@PathVariable("id") int id, @RequestBody kulikovskyModel cake) throws Exception {
         kulikovskyService.updateById(id, cake);
         return "cake was updated";
     }
