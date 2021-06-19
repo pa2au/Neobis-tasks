@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "kulikovsky")
-public class kulikovksy {
+public class Kulikovksy {
         @GeneratedValue()
         @Id
         @Column(name = "id", updatable = false, nullable = false)

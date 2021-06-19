@@ -1,24 +1,24 @@
 package com.example.week6.service;
 
-import com.example.week6.entity.kulikovksy;
-import com.example.week6.model.kulikovskyModel;
-import com.example.week6.repository.kulikovskyRepository;
+import com.example.week6.entity.Kulikovksy;
+import com.example.week6.model.KulikovskyModel;
+import com.example.week6.repository.KulikovskyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class kulikovskyService {
+public class KulikovskyService {
 
     @Autowired
-    private kulikovskyRepository kulikovskyRepository;
+    private KulikovskyRepository kulikovskyRepository;
 
-    public List<kulikovksy> getAll() {
+    public List<Kulikovksy> getAll() {
         return kulikovskyRepository.findAll();
     }
 
-    public Optional<kulikovksy> findById(Integer id) {
+    public Optional<Kulikovksy> findById(Integer id) {
         return kulikovskyRepository.findById(id);
     }
     public String deleteById(Integer id) {
@@ -27,8 +27,8 @@ public class kulikovskyService {
     }
 
 
-    public void addNewCake(kulikovskyModel model){
-        kulikovksy cake = new kulikovksy();
+    public void addNewCake(KulikovskyModel model){
+        Kulikovksy cake = new Kulikovksy();
         cake.setId(model.getId());
         cake.setName(model.getName());
         cake.setType(model.getType());
@@ -41,11 +41,11 @@ public class kulikovskyService {
         //"new cake was added"
     }
 
-    public void updateById(int id, kulikovskyModel model) throws Exception {
+    public void updateById(int id, KulikovskyModel model) throws Exception {
 
-        Optional<kulikovksy> cake = kulikovskyRepository.findById(id);
+        Optional<Kulikovksy> cake = kulikovskyRepository.findById(id);
         if(cake.isPresent()) {
-            kulikovksy updateCake = cake.get();
+            Kulikovksy updateCake = cake.get();
 
             updateCake.setId(model.getId());
             updateCake.setName(model.getName());

@@ -1,35 +1,35 @@
 package com.example.week6.controller;
 
-import com.example.week6.entity.kulikovksy;
-import com.example.week6.model.kulikovskyModel;
+import com.example.week6.entity.Kulikovksy;
+import com.example.week6.model.KulikovskyModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.example.week6.service.kulikovskyService;
+import com.example.week6.service.KulikovskyService;
 
 @RestController
 @RequestMapping(path = "/kulikovksy")
-public class kulikovksyController {
+public class KulikovksyController {
 
     @Autowired
-    private kulikovskyService kulikovskyService;
+    private KulikovskyService kulikovskyService;
 
     @GetMapping("/getAll")
 
-    public Iterable<kulikovksy> getAll() {
-        Iterable<kulikovksy> values =  kulikovskyService.getAll();
+    public Iterable<Kulikovksy> getAll() {
+        Iterable<Kulikovksy> values =  kulikovskyService.getAll();
         return values;
     }
 
 
     @PostMapping("/add")
-    public String  addNewCake(@RequestBody kulikovskyModel cake){
+    public String  addNewCake(@RequestBody KulikovskyModel cake){
         kulikovskyService.addNewCake(cake);
         return "new cake was added";
     }
 
 
     @PutMapping("/update/{id}")
-    public String updateCar(@PathVariable("id") int id, @RequestBody kulikovskyModel cake) throws Exception {
+    public String updateCar(@PathVariable("id") int id, @RequestBody KulikovskyModel cake) throws Exception {
         kulikovskyService.updateById(id, cake);
         return "cake was updated";
     }

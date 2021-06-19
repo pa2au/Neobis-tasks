@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class kulikovskyModel {
+public class KulikovskyModel {
     private int id;
     private String name;
     private String type ;
