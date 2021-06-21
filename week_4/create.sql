@@ -1,7 +1,7 @@
 CREATE DATABASE week4;
 USE week4;
 
-CREATE TABLE kulikovsky(
+CREATE TABLE products(
 id int ,
 name varchar(50) not null,
 type varchar(21),
@@ -12,8 +12,8 @@ date_of_expiration date);
 
 CREATE TABLE clients(
 id int,
-firstName varchar(50) not null,
-lastName varchar(50) not null,
+first_name varchar(50) not null,
+last_name varchar(50) not null,
 sex varchar(1) not null,
 phone_number varchar(10),
 date_of_birth date,
@@ -23,10 +23,10 @@ address varchar(100));
 CREATE TABLE sales(
 id int,
 clients_id int,
-kulikovsky_id int,
+products_id int,
 date_of_sale date);
 
-ALTER TABLE kulikovsky 
+ALTER TABLE products
 MODIFY COLUMN id INT auto_increment primary key;
 
 ALTER TABLE clients 
@@ -37,10 +37,10 @@ MODIFY COLUMN id INT auto_increment primary key;
 
 ALTER TABLE sales
 ADD ( CONSTRAINT fk_clients_id foreign key(clients_id) references clients(id),
- CONSTRAINT fk_kulikovsky_id foreign key(kulikovsky_id) references kulikovsky(id));
+ CONSTRAINT fk_products_id foreign key(products_id) references products(id));
 
 
-INSERT INTO kulikovsky
+INSERT INTO products
 VALUES
 (1000, "chocolate", "pie", "square", 552.2, "2021-05-05", "2021-05-25"),
 (2222, "cheesecake", "cake", "circle", 720.0, "2021-05-03", "2021-05-08"),
