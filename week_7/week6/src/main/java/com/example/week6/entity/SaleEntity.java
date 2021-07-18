@@ -9,24 +9,30 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 @Getter
 @Setter
-@Entity
+
 @NoArgsConstructor
 @AllArgsConstructor
 
-@Table(name = "sales")
-public class SalesEntity {
+@Table(name = "sale")
+public class SaleEntity {
     @Id
     @Column(name = "id", updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+
+    @SequenceGenerator(name = "sale_seq", sequenceName = "sale_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sale_seq")
+
+    private Long id;
 
     @ManyToOne
-    private ClientsEntity clients;
+    @JoinColumn(name = "client_id", nullable = false)
+    private ClientEntity clients;
 
     @ManyToOne
-    private ProductsEntity products;
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity products;
 
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateOfSale;

@@ -1,9 +1,9 @@
 package com.example.week6.repository;
 
-import com.example.week6.entity.SalesEntity;
+import com.example.week6.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SalesRepository extends JpaRepository<SalesEntity, Integer> {
+public interface ProductRepository extends JpaRepository <ProductEntity, Long>  {
 }
